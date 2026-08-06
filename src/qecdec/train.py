@@ -42,11 +42,19 @@ def train_model(
     batch_size: int,
     lr: float,
     device: torch.device,
+    cosine: bool = False,
     log_prefix: str = "",
 ) -> None:
-    x = torch.from_numpy(events).to(device=device, dtype=torch.float32)
+    # Keep the dataset as uint8 on-device (8x smaller than float32 — a 10M-shot
+    # d=11 set is ~1.2 GB) and cast per batch.
+    x = torch.from_numpy(events).to(device=device)
     y = torch.from_numpy(flips).to(device=device, dtype=torch.float32)
     opt = torch.optim.AdamW(model.parameters(), lr=lr)
+    sched = (
+        torch.optim.lr_scheduler.CosineAnnealingLR(opt, T_max=epochs)
+        if cosine
+        else None
+    )
     loss_fn = nn.BCEWithLogitsLoss()
     n = x.shape[0]
     model.train()
@@ -56,10 +64,12 @@ def train_model(
         for start in range(0, n, batch_size):
             idx = perm[start : start + batch_size]
             opt.zero_grad()
-            loss = loss_fn(model(x[idx]), y[idx])
+            loss = loss_fn(model(x[idx].float()), y[idx])
             loss.backward()
             opt.step()
             total += loss.item() * idx.shape[0]
+        if sched is not None:
+            sched.step()
         print(f"{log_prefix}epoch {epoch + 1}/{epochs} loss {total / n:.5f}", flush=True)
 
 
@@ -103,6 +113,7 @@ def run_one(config: dict, d: int, p: float, device: torch.device) -> dict:
         batch_size=config.get("batch_size", 1024),
         lr=config.get("lr", 1e-3),
         device=device,
+        cosine=config.get("cosine", False),
         log_prefix=label,
     )
 
