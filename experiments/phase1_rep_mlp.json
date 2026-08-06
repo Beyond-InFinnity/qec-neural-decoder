@@ -1,0 +1,14 @@
+{
+  "code": "repetition",
+  "noise": "circuit",
+  "distances": [3, 5, 7, 9, 11],
+  "rounds": "d",
+  "ps": [0.02, 0.03, 0.05],
+  "seed": 11,
+  "train_shots": 2000000,
+  "test_shots": 1000000,
+  "model": {"hidden": [512, 512], "dropout": 0.0},
+  "epochs": 8,
+  "batch_size": 4096,
+  "lr": 0.003
+}
