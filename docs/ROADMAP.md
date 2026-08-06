@@ -8,14 +8,21 @@ checkable, not vibes. Results that back an exit criterion live in
 
 Goal: a trustworthy benchmarking harness before any ML.
 
-- [ ] Environment: stim, pymatching, sinter, torch installed; GPU visible.
-- [ ] Repetition code: generate circuits (d = 3..11, phenomenological +
-      circuit-level noise), decode with PyMatching, plot p_L vs p.
-- [ ] Rotated surface code: memory experiment, d = 3/5/7, circuit-level
-      depolarizing noise, r = d rounds, MWPM via sinter.
-- [ ] Reproduce the standard threshold crossing (~0.5–1% for circuit-level
-      depolarizing noise, MWPM). Curves for different d must cross.
-- [ ] Latency baseline: PyMatching decode time per shot vs d (batched, single).
+- [x] Environment: stim 1.16 / pymatching 2.4 / sinter 1.16 on claude-server
+      (CPU-only). Torch+GPU env pends the workstation SSH key
+      (scripts/bootstrap_workstation.sh is ready to run).
+- [x] Repetition code: circuit-level noise, d = 3..11, MWPM, p_L vs p
+      (experiments/phase0_repetition.json → .results.json;
+      docs/figures/phase0_repetition_threshold.png). Crossing ≈ 5%.
+- [x] Rotated surface code: memory experiment, d = 3/5/7, circuit-level
+      depolarizing noise, r = d, MWPM via sinter
+      (experiments/phase0_surface.json → .results.json).
+- [x] Threshold crossing reproduced at p ≈ 0.007 with clean sub/supra-threshold
+      ordering inversion (docs/figures/phase0_surface_threshold.png) —
+      consistent with published MWPM circuit-level results.
+- [x] Latency baseline (experiments/phase0_latency.results.json), i5-4690K:
+      d=7 batched 16 µs/shot, single-shot median 22 µs, p99 49 µs — vs the
+      ~1 µs real-time budget. Re-run on the i9-9900 for the number of record.
 
 **Exit:** threshold plot that matches published MWPM surface-code results;
 harness produces (config → metrics artifact) end-to-end.

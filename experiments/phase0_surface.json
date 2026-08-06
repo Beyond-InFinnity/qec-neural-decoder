@@ -1,0 +1,10 @@
+{
+  "code": "surface",
+  "noise": "circuit",
+  "distances": [3, 5, 7],
+  "rounds": "d",
+  "ps": [0.004, 0.006, 0.008, 0.01, 0.012, 0.014],
+  "decoders": ["pymatching"],
+  "max_shots": 200000,
+  "max_errors": 800
+}

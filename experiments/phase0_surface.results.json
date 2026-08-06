@@ -1,0 +1,244 @@
+{
+  "config": {
+    "code": "surface",
+    "noise": "circuit",
+    "distances": [
+      3,
+      5,
+      7
+    ],
+    "rounds": "d",
+    "ps": [
+      0.004,
+      0.006,
+      0.008,
+      0.01,
+      0.012,
+      0.014
+    ],
+    "decoders": [
+      "pymatching"
+    ],
+    "max_shots": 200000,
+    "max_errors": 800
+  },
+  "git_sha": "5ff00bbc897271279fc8c06eab185da0431e24a5",
+  "results": [
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.004,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 69905,
+      "errors": 808,
+      "seconds": 0.03154949308373034,
+      "logical_error_rate": 0.011558543737930048
+    },
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.006,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 34065,
+      "errors": 814,
+      "seconds": 0.02073291945271194,
+      "logical_error_rate": 0.02389549390870395
+    },
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.008,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 20753,
+      "errors": 813,
+      "seconds": 0.01588231499772519,
+      "logical_error_rate": 0.03917505902761047
+    },
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.01,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 13585,
+      "errors": 815,
+      "seconds": 0.013033941853791475,
+      "logical_error_rate": 0.059992638940007365
+    },
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.012,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 10513,
+      "errors": 831,
+      "seconds": 0.010608757962472737,
+      "logical_error_rate": 0.07904499191477218
+    },
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.014,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 8465,
+      "errors": 870,
+      "seconds": 0.010121568222530186,
+      "logical_error_rate": 0.10277613703484938
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.004,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 101649,
+      "errors": 802,
+      "seconds": 0.2722075096098706,
+      "logical_error_rate": 0.007889895621206308
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.006,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 35089,
+      "errors": 816,
+      "seconds": 0.14065307565033436,
+      "logical_error_rate": 0.023255151186981675
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 15633,
+      "errors": 802,
+      "seconds": 0.08646671078167856,
+      "logical_error_rate": 0.05130173351244163
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.01,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 10513,
+      "errors": 835,
+      "seconds": 0.07342107978183776,
+      "logical_error_rate": 0.07942547322362789
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.012,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 7441,
+      "errors": 927,
+      "seconds": 0.06393664714414626,
+      "logical_error_rate": 0.12458002956591856
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.014,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 5393,
+      "errors": 940,
+      "seconds": 0.054301152005791664,
+      "logical_error_rate": 0.17430001854255517
+    },
+    {
+      "code": "surface",
+      "distance": 7,
+      "rounds": 7,
+      "p": 0.004,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 197852,
+      "errors": 853,
+      "seconds": 1.7090675857616588,
+      "logical_error_rate": 0.004311303398499889
+    },
+    {
+      "code": "surface",
+      "distance": 7,
+      "rounds": 7,
+      "p": 0.006,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 47650,
+      "errors": 897,
+      "seconds": 0.6509717919398099,
+      "logical_error_rate": 0.01882476390346275
+    },
+    {
+      "code": "surface",
+      "distance": 7,
+      "rounds": 7,
+      "p": 0.008,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 15633,
+      "errors": 801,
+      "seconds": 0.3162493868730962,
+      "logical_error_rate": 0.051237766263673
+    },
+    {
+      "code": "surface",
+      "distance": 7,
+      "rounds": 7,
+      "p": 0.01,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 8465,
+      "errors": 856,
+      "seconds": 0.21923601685557514,
+      "logical_error_rate": 0.10112226816302422
+    },
+    {
+      "code": "surface",
+      "distance": 7,
+      "rounds": 7,
+      "p": 0.012,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 5393,
+      "errors": 890,
+      "seconds": 0.17318058921955526,
+      "logical_error_rate": 0.16502874096050435
+    },
+    {
+      "code": "surface",
+      "distance": 7,
+      "rounds": 7,
+      "p": 0.014,
+      "noise": "circuit",
+      "decoder": "pymatching",
+      "shots": 3345,
+      "errors": 823,
+      "seconds": 0.125719039933756,
+      "logical_error_rate": 0.2460388639760837
+    }
+  ]
+}

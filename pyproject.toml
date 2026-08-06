@@ -8,11 +8,13 @@ dependencies = [
     "pymatching>=2.2",
     "sinter>=1.13",
     "numpy",
-    "torch>=2.3",
     "matplotlib",
 ]
 
 [project.optional-dependencies]
+# torch is intentionally an extra: the orchestrator (Claude server) runs
+# CPU-only baselines; the workstation installs .[ml] with cu128 wheels.
+ml = ["torch>=2.7"]
 dev = ["pytest", "ruff", "ipykernel"]
 
 [build-system]

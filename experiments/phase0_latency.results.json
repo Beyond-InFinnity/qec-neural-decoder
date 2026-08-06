@@ -1,0 +1,54 @@
+{
+  "config": {
+    "code": "surface",
+    "noise": "circuit",
+    "distances": [
+      3,
+      5,
+      7
+    ],
+    "rounds": "d",
+    "p": 0.008,
+    "shots": 20000,
+    "single_shot_n": 2000,
+    "seed": 7
+  },
+  "results": [
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.008,
+      "noise": "circuit",
+      "num_detectors": 24,
+      "shots": 20000,
+      "batch_us_per_shot": 0.47395399888046086,
+      "single_us_median": 4.900968633592129,
+      "single_us_p99": 8.992035873234272
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "num_detectors": 120,
+      "shots": 20000,
+      "batch_us_per_shot": 4.298969003139064,
+      "single_us_median": 9.11252573132515,
+      "single_us_p99": 22.761058062314987
+    },
+    {
+      "code": "surface",
+      "distance": 7,
+      "rounds": 7,
+      "p": 0.008,
+      "noise": "circuit",
+      "num_detectors": 336,
+      "shots": 20000,
+      "batch_us_per_shot": 16.382786800386384,
+      "single_us_median": 21.685496903955936,
+      "single_us_p99": 48.67697134613991
+    }
+  ]
+}

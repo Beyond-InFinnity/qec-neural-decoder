@@ -1,0 +1,103 @@
+[31mStarting 4 workers...[0m
+[31m18 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        1 pymatching   ?     200000         800 code=surface,distance=3,rounds=3,p=0.004,noise=circuit
+        1 pymatching <1m     185391         447 code=surface,distance=3,rounds=3,p=0.006,noise=circuit
+        1 pymatching   ?     200000         800 code=surface,distance=3,rounds=3,p=0.008,noise=circuit
+        1 pymatching   ?     200000         800 code=surface,distance=3,rounds=3,p=0.01,noise=circuit 
+        0 pymatching ?·∞     200000         800 code=surface,distance=3,rounds=3,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=3,rounds=3,p=0.014,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=5,rounds=5,p=0.004,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=5,rounds=5,p=0.006,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=5,rounds=5,p=0.008,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=5,rounds=5,p=0.01,noise=circuit 
+        0 pymatching ?·∞     200000         800 code=surface,distance=5,rounds=5,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=5,rounds=5,p=0.014,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.006,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.008,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.01,noise=circuit 
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.014,noise=circuit[0m
+[31m12 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        1 pymatching <1m     183343         661 code=surface,distance=5,rounds=5,p=0.004,noise=circuit
+        1 pymatching <1m     193583         660 code=surface,distance=5,rounds=5,p=0.006,noise=circuit
+        1 pymatching <1m     197679         690 code=surface,distance=5,rounds=5,p=0.008,noise=circuit
+        1 pymatching <1m     197679         621 code=surface,distance=5,rounds=5,p=0.01,noise=circuit 
+        0 pymatching ?·∞     200000         800 code=surface,distance=5,rounds=5,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=5,rounds=5,p=0.014,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.006,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.008,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.01,noise=circuit 
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.014,noise=circuit[0m
+[31m10 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        1 pymatching <1m     158767         448 code=surface,distance=5,rounds=5,p=0.004,noise=circuit
+        1 pymatching <1m     171055         115 code=surface,distance=5,rounds=5,p=0.006,noise=circuit
+        1 pymatching <1m     198703         649 code=surface,distance=5,rounds=5,p=0.012,noise=circuit
+        1 pymatching   ?     200000         800 code=surface,distance=5,rounds=5,p=0.014,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.006,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.008,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.01,noise=circuit 
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.014,noise=circuit[0m
+[31m7 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        1 pymatching <1m     109615          85 code=surface,distance=5,rounds=5,p=0.004,noise=circuit
+        1 pymatching <1m     196655         788 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        1 pymatching   ?     200000         800 code=surface,distance=7,rounds=7,p=0.006,noise=circuit
+        1 pymatching   ?     200000         800 code=surface,distance=7,rounds=7,p=0.008,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.01,noise=circuit 
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.014,noise=circuit[0m
+[31m6 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        1 pymatching <1m     184367         738 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        1 pymatching <1m     193583         699 code=surface,distance=7,rounds=7,p=0.006,noise=circuit
+        1 pymatching <1m     196655         614 code=surface,distance=7,rounds=7,p=0.008,noise=circuit
+        1 pymatching <1m     198703         678 code=surface,distance=7,rounds=7,p=0.01,noise=circuit 
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.014,noise=circuit[0m
+[31m6 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        1 pymatching <1m     177199         702 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        1 pymatching <1m     186415         541 code=surface,distance=7,rounds=7,p=0.006,noise=circuit
+        1 pymatching <1m     192559         411 code=surface,distance=7,rounds=7,p=0.008,noise=circuit
+        1 pymatching <1m     194607         285 code=surface,distance=7,rounds=7,p=0.01,noise=circuit 
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.014,noise=circuit[0m
+[31m5 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        1 pymatching <1m     167983         649 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        1 pymatching <1m     180271         415 code=surface,distance=7,rounds=7,p=0.006,noise=circuit
+        1 pymatching <1m     185391          43 code=surface,distance=7,rounds=7,p=0.008,noise=circuit
+        1 pymatching   ?     200000         800 code=surface,distance=7,rounds=7,p=0.012,noise=circuit
+        0 pymatching ?·∞     200000         800 code=surface,distance=7,rounds=7,p=0.014,noise=circuit[0m
+[31m4 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        1 pymatching <1m     155695         590 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        1 pymatching <1m     172079         272 code=surface,distance=7,rounds=7,p=0.006,noise=circuit
+        1 pymatching <1m     197679         442 code=surface,distance=7,rounds=7,p=0.012,noise=circuit
+        1 pymatching <1m     199727         732 code=surface,distance=7,rounds=7,p=0.014,noise=circuit[0m
+[31m2 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        2 pymatching <1m     138287         520 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        2 pymatching <1m     172079         272 code=surface,distance=7,rounds=7,p=0.006,noise=circuit[0m
+[31m2 tasks left:
+  workers    decoder        eta shots_left errors_left json_metadata                                         
+        2 pymatching        <1m     131870         480 code=surface,distance=7,rounds=7,p=0.004,noise=circuit
+        2 pymatching [draining]     152350         -97 code=surface,distance=7,rounds=7,p=0.006,noise=circuit[0m
+[31m1 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        4 pymatching <1m      85244         298 code=surface,distance=7,rounds=7,p=0.004,noise=circuit[0m
+[31m1 tasks left:
+  workers    decoder eta shots_left errors_left json_metadata                                         
+        4 pymatching <1m      43060         125 code=surface,distance=7,rounds=7,p=0.004,noise=circuit[0m
+[31m1 tasks left:
+  workers    decoder        eta shots_left errors_left json_metadata                                         
+        4 pymatching [draining]       2148         -53 code=surface,distance=7,rounds=7,p=0.004,noise=circuit[0m
+wrote 18 rows -> experiments/phase0_surface.results.json

@@ -1,0 +1,10 @@
+{
+  "code": "surface",
+  "noise": "circuit",
+  "distances": [3, 5, 7],
+  "rounds": "d",
+  "p": 0.008,
+  "shots": 20000,
+  "single_shot_n": 2000,
+  "seed": 7
+}
