@@ -1,0 +1,30 @@
+[project]
+name = "qecdec"
+version = "0.0.1"
+description = "Neural-network decoders for QEC, benchmarked against MWPM"
+requires-python = ">=3.11"
+dependencies = [
+    "stim>=1.13",
+    "pymatching>=2.2",
+    "sinter>=1.13",
+    "numpy",
+    "torch>=2.3",
+    "matplotlib",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "ruff", "ipykernel"]
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = ["slow: long-running sampling/training tests"]
+
+[tool.ruff]
+line-length = 100
