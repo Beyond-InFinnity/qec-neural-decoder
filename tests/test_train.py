@@ -32,3 +32,16 @@ def test_mlp_learns_repetition_code_cpu():
     # Depth matters: a (128, 64) MLP lands at/below MWPM on the d=3 rep code
     # (a single 64-unit layer plateaus ~2.3x worse — see Phase 1 notes).
     assert nn_rate < 1.15 * mwpm_rate
+
+
+def test_cnn_grid_mapping():
+    from qecdec.circuits import make_circuit
+    from qecdec.train import build_model
+
+    for d in (5, 7, 11):
+        spec = CircuitSpec(code="repetition", distance=d, rounds=d, p=0.02)
+        n = make_circuit(spec).num_detectors
+        assert n == (d + 1) * (d - 1)
+        model = build_model({"model": {"arch": "cnn", "channels": 8, "depth": 1}}, spec, n)
+        out = model(torch.zeros(4, n))
+        assert out.shape == (4,)

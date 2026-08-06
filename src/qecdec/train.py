@@ -23,8 +23,32 @@ from torch import nn
 
 from .circuits import CircuitSpec, make_circuit
 from .collect import git_sha
-from .models import MLPDecoder
+from .models import ConvDecoder, MLPDecoder
 from .sampling import sample_detection_events
+
+
+def build_model(config: dict, spec: CircuitSpec, num_detectors: int) -> nn.Module:
+    mcfg = config["model"]
+    arch = mcfg.get("arch", "mlp")
+    if arch == "mlp":
+        return MLPDecoder(
+            num_detectors=num_detectors,
+            hidden=tuple(mcfg.get("hidden", [256, 256])),
+            dropout=mcfg.get("dropout", 0.0),
+        )
+    if arch == "cnn":
+        if spec.code != "repetition":
+            raise NotImplementedError("CNN grid mapping is repetition-code-only for now")
+        grid = (spec.rounds + 1, spec.distance - 1)
+        if grid[0] * grid[1] != num_detectors:
+            raise ValueError(f"grid {grid} != {num_detectors} detectors")
+        return ConvDecoder(
+            grid=grid,
+            channels=mcfg.get("channels", 64),
+            depth=mcfg.get("depth", 4),
+            head=mcfg.get("head", 128),
+        )
+    raise ValueError(f"unknown arch {arch!r}")
 
 
 def mwpm_predict(spec: CircuitSpec, events: np.ndarray) -> np.ndarray:
@@ -100,11 +124,7 @@ def run_one(config: dict, d: int, p: float, device: torch.device) -> dict:
     train = sample_detection_events(spec, config["train_shots"], seed=seed + 1)
     test = sample_detection_events(spec, config["test_shots"], seed=seed + 2)
 
-    model = MLPDecoder(
-        num_detectors=train.events.shape[1],
-        hidden=tuple(config["model"].get("hidden", [256, 256])),
-        dropout=config["model"].get("dropout", 0.0),
-    ).to(device)
+    model = build_model(config, spec, train.events.shape[1]).to(device)
     train_model(
         model,
         train.events,
