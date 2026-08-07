@@ -68,6 +68,7 @@ def train_model(
     lr: float,
     device: torch.device,
     cosine: bool = False,
+    grad_clip: float | None = None,
     log_prefix: str = "",
 ) -> None:
     # Keep the dataset as uint8 on-device (8x smaller than float32 — a 10M-shot
@@ -91,6 +92,8 @@ def train_model(
             opt.zero_grad()
             loss = loss_fn(model(x[idx].float()), y[idx])
             loss.backward()
+            if grad_clip is not None:
+                nn.utils.clip_grad_norm_(model.parameters(), grad_clip)
             opt.step()
             total += loss.item() * idx.shape[0]
         if sched is not None:
@@ -135,6 +138,7 @@ def run_one(config: dict, d: int, p: float, device: torch.device) -> dict:
         lr=config.get("lr", 1e-3),
         device=device,
         cosine=config.get("cosine", False),
+        grad_clip=config.get("grad_clip"),
         log_prefix=label,
     )
 
@@ -169,11 +173,12 @@ def main() -> None:
     config = json.loads(args.config.read_text())
     device = torch.device(args.device)
 
-    rows = [
-        run_one(config, d, p, device)
-        for d in config["distances"]
-        for p in config["ps"]
+    # "cells": explicit [d, p] pairs override the distances x ps cross-product
+    # (for targeted retrains).
+    cells = config.get("cells") or [
+        [d, p] for d in config["distances"] for p in config["ps"]
     ]
+    rows = [run_one(config, d, p, device) for d, p in cells]
     out = args.out or args.config.with_name(args.config.stem + ".results.json")
     out.write_text(
         json.dumps(

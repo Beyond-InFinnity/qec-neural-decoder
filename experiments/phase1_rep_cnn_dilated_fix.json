@@ -1,0 +1,17 @@
+{
+  "code": "repetition",
+  "noise": "circuit",
+  "distances": [9, 11],
+  "rounds": "d",
+  "ps": [0.02, 0.03, 0.05],
+  "cells": [[9, 0.03], [11, 0.02], [11, 0.03], [11, 0.05]],
+  "seed": 23,
+  "train_shots": 15000000,
+  "test_shots": 1000000,
+  "model": {"arch": "cnn", "channels": 64, "dilations": [1, 2, 4, 4, 2, 1], "head": 128},
+  "epochs": 25,
+  "batch_size": 4096,
+  "lr": 0.001,
+  "grad_clip": 1.0,
+  "cosine": true
+}
