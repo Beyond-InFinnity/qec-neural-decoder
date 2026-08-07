@@ -47,6 +47,7 @@ def build_model(config: dict, spec: CircuitSpec, num_detectors: int) -> nn.Modul
             channels=mcfg.get("channels", 64),
             depth=mcfg.get("depth", 4),
             head=mcfg.get("head", 128),
+            dilations=mcfg.get("dilations"),
         )
     raise ValueError(f"unknown arch {arch!r}")
 

@@ -18,13 +18,20 @@ class ConvDecoder(nn.Module):
         channels: int = 64,
         depth: int = 4,
         head: int = 128,
+        dilations: tuple[int, ...] | None = None,
     ):
         super().__init__()
         self.grid = grid
+        # Receptive field = 1 + 2*sum(dilations); it must exceed the longest
+        # error chain (~d sites) or distant chain-endpoints can't be correlated.
+        dil = tuple(dilations) if dilations else (1,) * depth
         convs: list[nn.Module] = []
         in_ch = 1
-        for _ in range(depth):
-            convs += [nn.Conv2d(in_ch, channels, kernel_size=3, padding=1), nn.ReLU()]
+        for r in dil:
+            convs += [
+                nn.Conv2d(in_ch, channels, kernel_size=3, padding=r, dilation=r),
+                nn.ReLU(),
+            ]
             in_ch = channels
         self.convs = nn.Sequential(*convs)
         t, x = grid
