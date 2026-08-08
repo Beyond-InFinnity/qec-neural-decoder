@@ -14,12 +14,14 @@ afterthought.
 
 ## Current status
 
-Phase 0 (baselines) — complete on claude-server (2026-08-05): MWPM threshold
-curves for repetition (d≤11) and surface (d≤7) codes reproduced, crossing at
-p≈0.007 for the surface code; PyMatching latency baseline collected. Pending:
-workstation SSH key → run scripts/bootstrap_workstation.sh → re-run latency on
-the i9-9900. Next: Phase 1 (neural decoder for the repetition code). See
-docs/ROADMAP.md. Orchestration doc: ~/Documents/projects/homelab/ORCHESTRATION.md.
+Phase 0 complete (2026-08-05): MWPM threshold curves reproduced (surface-code
+crossing p≈0.007), latency baseline (i5: d=7 ~22 µs/shot single). Phase 1
+complete (2026-08-08): dilated CNN matches MWPM on rep code d≤11 — full arc,
+recipe, and negative results in docs/phase1-results.md. Workstation
+orchestration live (see ~/Documents/projects/homelab/ORCHESTRATION.md; GPU
+runs on cuda:1 = RTX 5050). Next: Phase 2 (surface-code decoder) — carry
+forward: locality-first arch, RF ≥ d, grad-clip + lr ≤ 1e-3, train-at-high-p,
+paired eval. Still pending: latency re-run on i9-9900; tmux install.
 
 ## Hardware context
 

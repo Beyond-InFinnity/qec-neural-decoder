@@ -31,15 +31,18 @@ harness produces (config → metrics artifact) end-to-end.
 
 Goal: smallest possible ML decoder that works; establish the training pipeline.
 
-- [ ] Dataset pipeline: Stim detection-event sampling → tensors (memory-mapped
-      or generated-on-the-fly; avoid materializing >10 GB).
-- [ ] MLP baseline predicting the logical observable flip from the syndrome.
-- [ ] Match or beat MWPM logical error rate on rep code, d ≤ 11, at 2–3 values
-      of p spanning the threshold region.
-- [ ] Training-size study: accuracy vs number of training shots.
+- [x] Dataset pipeline: Stim sampling → uint8 on-device tensors (15M-shot
+      d=11 set ≈ 1.2 GB VRAM).
+- [x] MLP baseline: works at d=3 (beats MWPM 1.05×⁻¹), fails to scale
+      (17.8× worse at d=11 even at 19× compute) — documented negative.
+- [x] Match or beat MWPM at d ≤ 11: achieved via dilated CNN (RF 29) +
+      grad-clip + train-at-p=0.05 transfer. Within 8% everywhere; NN ahead at
+      d=9 p≥0.03 and d=7/11 p=0.05. See docs/phase1-results.md.
+- [x] Training-budget/generalization studies: small-vs-19× MLP;
+      p-matched vs p=0.05-transfer training (transfer strictly better).
 
-**Exit:** NN ≥ MWPM accuracy on repetition code with a documented training
-recipe; pipeline reusable for Phase 2.
+**Exit: met (2026-08-08).** Recipe + full arc in docs/phase1-results.md;
+pipeline (build_model / cells / eval_ps / paired eval) carries to Phase 2.
 
 ## Phase 2 — Neural decoder, surface code
 

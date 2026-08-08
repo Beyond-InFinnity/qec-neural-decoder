@@ -1,0 +1,161 @@
+{
+  "config": {
+    "code": "repetition",
+    "noise": "circuit",
+    "distances": [
+      11
+    ],
+    "rounds": "d",
+    "ps": [
+      0.05
+    ],
+    "cells": [
+      [
+        11,
+        0.05
+      ],
+      [
+        9,
+        0.05
+      ]
+    ],
+    "eval_ps": [
+      0.02,
+      0.03,
+      0.05
+    ],
+    "seed": 23,
+    "train_shots": 15000000,
+    "test_shots": 1000000,
+    "model": {
+      "arch": "cnn",
+      "channels": 64,
+      "dilations": [
+        1,
+        2,
+        4,
+        4,
+        2,
+        1
+      ],
+      "head": 128
+    },
+    "epochs": 25,
+    "batch_size": 4096,
+    "lr": 0.001,
+    "grad_clip": 1.0,
+    "cosine": true
+  },
+  "git_sha": "88110440995449ffd4e915e114fe1b48a3484060",
+  "device": "cuda:1",
+  "results": [
+    {
+      "code": "repetition",
+      "distance": 11,
+      "rounds": 11,
+      "p": 0.05,
+      "noise": "circuit",
+      "eval_p": 0.02,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 961,
+      "mwpm_errors": 887,
+      "nn_only_wrong": 388,
+      "mwpm_only_wrong": 314,
+      "nn_logical_error_rate": 0.000961,
+      "mwpm_logical_error_rate": 0.000887,
+      "params": 1168577,
+      "seconds": 10509.293518154998
+    },
+    {
+      "code": "repetition",
+      "distance": 11,
+      "rounds": 11,
+      "p": 0.05,
+      "noise": "circuit",
+      "eval_p": 0.03,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 9584,
+      "mwpm_errors": 8984,
+      "nn_only_wrong": 3511,
+      "mwpm_only_wrong": 2911,
+      "nn_logical_error_rate": 0.009584,
+      "mwpm_logical_error_rate": 0.008984,
+      "params": 1168577,
+      "seconds": 10533.028637015028
+    },
+    {
+      "code": "repetition",
+      "distance": 11,
+      "rounds": 11,
+      "p": 0.05,
+      "noise": "circuit",
+      "eval_p": 0.05,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 102086,
+      "mwpm_errors": 101890,
+      "nn_only_wrong": 32126,
+      "mwpm_only_wrong": 31930,
+      "nn_logical_error_rate": 0.102086,
+      "mwpm_logical_error_rate": 0.10189,
+      "params": 1168577,
+      "seconds": 10564.797818690015
+    },
+    {
+      "code": "repetition",
+      "distance": 9,
+      "rounds": 9,
+      "p": 0.05,
+      "noise": "circuit",
+      "eval_p": 0.02,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 2062,
+      "mwpm_errors": 1981,
+      "nn_only_wrong": 628,
+      "mwpm_only_wrong": 547,
+      "nn_logical_error_rate": 0.002062,
+      "mwpm_logical_error_rate": 0.001981,
+      "params": 840897,
+      "seconds": 6996.5879887780175
+    },
+    {
+      "code": "repetition",
+      "distance": 9,
+      "rounds": 9,
+      "p": 0.05,
+      "noise": "circuit",
+      "eval_p": 0.03,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 13864,
+      "mwpm_errors": 14012,
+      "nn_only_wrong": 3822,
+      "mwpm_only_wrong": 3970,
+      "nn_logical_error_rate": 0.013864,
+      "mwpm_logical_error_rate": 0.014012,
+      "params": 840897,
+      "seconds": 7008.635320857051
+    },
+    {
+      "code": "repetition",
+      "distance": 9,
+      "rounds": 9,
+      "p": 0.05,
+      "noise": "circuit",
+      "eval_p": 0.05,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 101148,
+      "mwpm_errors": 105328,
+      "nn_only_wrong": 25366,
+      "mwpm_only_wrong": 29546,
+      "nn_logical_error_rate": 0.101148,
+      "mwpm_logical_error_rate": 0.105328,
+      "params": 840897,
+      "seconds": 7025.391584800032
+    }
+  ]
+}
