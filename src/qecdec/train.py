@@ -142,26 +142,38 @@ def run_one(config: dict, d: int, p: float, device: torch.device) -> dict:
         log_prefix=label,
     )
 
-    nn_pred = nn_predict(model, test.events, device)
-    mwpm_pred = mwpm_predict(spec, test.events)
-    nn_wrong = nn_pred != test.flips
-    mwpm_wrong = mwpm_pred != test.flips
-    row = {
-        **spec.to_metadata(),
-        "train_shots": config["train_shots"],
-        "test_shots": config["test_shots"],
-        "nn_errors": int(nn_wrong.sum()),
-        "mwpm_errors": int(mwpm_wrong.sum()),
-        "nn_only_wrong": int((nn_wrong & ~mwpm_wrong).sum()),
-        "mwpm_only_wrong": int((~nn_wrong & mwpm_wrong).sum()),
-        "nn_logical_error_rate": float(nn_wrong.mean()),
-        "mwpm_logical_error_rate": float(mwpm_wrong.mean()),
-        "params": sum(t.numel() for t in model.parameters()),
-        "seconds": time.perf_counter() - t0,
-    }
-    print(f"{label}p_L nn={row['nn_logical_error_rate']:.2e} "
-          f"mwpm={row['mwpm_logical_error_rate']:.2e}", flush=True)
-    return row
+    # "eval_ps" evaluates the p-trained model across other noise rates
+    # (train-where-errors-are-plentiful, test-where-they're-rare).
+    rows = []
+    for eval_p in config.get("eval_ps") or [p]:
+        eval_spec = CircuitSpec(
+            code=spec.code, distance=d, rounds=spec.rounds, p=eval_p, noise=spec.noise
+        )
+        etest = (
+            test
+            if eval_p == p
+            else sample_detection_events(eval_spec, config["test_shots"], seed=seed + 3)
+        )
+        nn_wrong = nn_predict(model, etest.events, device) != etest.flips
+        mwpm_wrong = mwpm_predict(eval_spec, etest.events) != etest.flips
+        row = {
+            **spec.to_metadata(),
+            "eval_p": eval_p,
+            "train_shots": config["train_shots"],
+            "test_shots": config["test_shots"],
+            "nn_errors": int(nn_wrong.sum()),
+            "mwpm_errors": int(mwpm_wrong.sum()),
+            "nn_only_wrong": int((nn_wrong & ~mwpm_wrong).sum()),
+            "mwpm_only_wrong": int((~nn_wrong & mwpm_wrong).sum()),
+            "nn_logical_error_rate": float(nn_wrong.mean()),
+            "mwpm_logical_error_rate": float(mwpm_wrong.mean()),
+            "params": sum(t.numel() for t in model.parameters()),
+            "seconds": time.perf_counter() - t0,
+        }
+        print(f"{label}eval_p={eval_p} p_L nn={row['nn_logical_error_rate']:.2e} "
+              f"mwpm={row['mwpm_logical_error_rate']:.2e}", flush=True)
+        rows.append(row)
+    return rows
 
 
 def main() -> None:
@@ -178,7 +190,7 @@ def main() -> None:
     cells = config.get("cells") or [
         [d, p] for d in config["distances"] for p in config["ps"]
     ]
-    rows = [run_one(config, d, p, device) for d, p in cells]
+    rows = [row for d, p in cells for row in run_one(config, d, p, device)]
     out = args.out or args.config.with_name(args.config.stem + ".results.json")
     out.write_text(
         json.dumps(

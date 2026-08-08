@@ -1,0 +1,127 @@
+{
+  "config": {
+    "code": "repetition",
+    "noise": "circuit",
+    "distances": [
+      9,
+      11
+    ],
+    "rounds": "d",
+    "ps": [
+      0.02,
+      0.03,
+      0.05
+    ],
+    "cells": [
+      [
+        9,
+        0.03
+      ],
+      [
+        11,
+        0.02
+      ],
+      [
+        11,
+        0.03
+      ],
+      [
+        11,
+        0.05
+      ]
+    ],
+    "seed": 23,
+    "train_shots": 15000000,
+    "test_shots": 1000000,
+    "model": {
+      "arch": "cnn",
+      "channels": 64,
+      "dilations": [
+        1,
+        2,
+        4,
+        4,
+        2,
+        1
+      ],
+      "head": 128
+    },
+    "epochs": 25,
+    "batch_size": 4096,
+    "lr": 0.001,
+    "grad_clip": 1.0,
+    "cosine": true
+  },
+  "git_sha": "868ed0c0f66cdf676f281d35582defe659ff784f",
+  "device": "cuda:1",
+  "results": [
+    {
+      "code": "repetition",
+      "distance": 9,
+      "rounds": 9,
+      "p": 0.03,
+      "noise": "circuit",
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 14581,
+      "mwpm_errors": 13830,
+      "nn_only_wrong": 4704,
+      "mwpm_only_wrong": 3953,
+      "nn_logical_error_rate": 0.014581,
+      "mwpm_logical_error_rate": 0.01383,
+      "params": 840897,
+      "seconds": 7226.789535674005
+    },
+    {
+      "code": "repetition",
+      "distance": 11,
+      "rounds": 11,
+      "p": 0.02,
+      "noise": "circuit",
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 1658,
+      "mwpm_errors": 884,
+      "nn_only_wrong": 1085,
+      "mwpm_only_wrong": 311,
+      "nn_logical_error_rate": 0.001658,
+      "mwpm_logical_error_rate": 0.000884,
+      "params": 1168577,
+      "seconds": 10352.841645917011
+    },
+    {
+      "code": "repetition",
+      "distance": 11,
+      "rounds": 11,
+      "p": 0.03,
+      "noise": "circuit",
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 10610,
+      "mwpm_errors": 9084,
+      "nn_only_wrong": 4372,
+      "mwpm_only_wrong": 2846,
+      "nn_logical_error_rate": 0.01061,
+      "mwpm_logical_error_rate": 0.009084,
+      "params": 1168577,
+      "seconds": 10705.160086695018
+    },
+    {
+      "code": "repetition",
+      "distance": 11,
+      "rounds": 11,
+      "p": 0.05,
+      "noise": "circuit",
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 102168,
+      "mwpm_errors": 101890,
+      "nn_only_wrong": 32044,
+      "mwpm_only_wrong": 31766,
+      "nn_logical_error_rate": 0.102168,
+      "mwpm_logical_error_rate": 0.10189,
+      "params": 1168577,
+      "seconds": 10713.098961993994
+    }
+  ]
+}
