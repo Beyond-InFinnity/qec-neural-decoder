@@ -1,0 +1,18 @@
+{
+  "code": "surface",
+  "noise": "circuit",
+  "distances": [3, 5],
+  "rounds": "d",
+  "ps": [0.008],
+  "cells": [[3, 0.008], [5, 0.008]],
+  "eval_ps": [0.004, 0.006, 0.008],
+  "seed": 23,
+  "train_shots": 15000000,
+  "test_shots": 1000000,
+  "model": {"arch": "cnn3d", "channels": 48, "depth": 4, "head": 128},
+  "epochs": 25,
+  "batch_size": 2048,
+  "lr": 0.001,
+  "grad_clip": 1.0,
+  "cosine": true
+}

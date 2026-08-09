@@ -23,7 +23,8 @@ from torch import nn
 
 from .circuits import CircuitSpec, make_circuit
 from .collect import git_sha
-from .models import ConvDecoder, MLPDecoder
+from .models import ConvDecoder, MLPDecoder, SurfaceConvDecoder
+from .representation import volume_spec
 from .sampling import sample_detection_events
 
 
@@ -48,6 +49,19 @@ def build_model(config: dict, spec: CircuitSpec, num_detectors: int) -> nn.Modul
             depth=mcfg.get("depth", 4),
             head=mcfg.get("head", 128),
             dilations=mcfg.get("dilations"),
+        )
+    if arch == "cnn3d":
+        if spec.code != "surface":
+            raise NotImplementedError("cnn3d expects the surface code")
+        vspec = volume_spec(make_circuit(spec))
+        if len(vspec.flat_index) != num_detectors:
+            raise ValueError("volume mapping does not cover all detectors")
+        return SurfaceConvDecoder(
+            volume_shape=vspec.shape,
+            flat_index=vspec.flat_index,
+            channels=mcfg.get("channels", 48),
+            depth=mcfg.get("depth", 4),
+            head=mcfg.get("head", 128),
         )
     raise ValueError(f"unknown arch {arch!r}")
 
