@@ -116,11 +116,14 @@ def train_model(
 
 
 @torch.no_grad()
-def nn_predict(model: nn.Module, events: np.ndarray, device: torch.device) -> np.ndarray:
+def nn_predict(
+    model: nn.Module, events: np.ndarray, device: torch.device, chunk: int = 8192
+) -> np.ndarray:
+    # Chunk size bounds eval activation memory (Conv3d at 64k shots OOMs 8 GB).
     model.eval()
     preds = []
-    for start in range(0, events.shape[0], 65536):
-        x = torch.from_numpy(events[start : start + 65536]).to(
+    for start in range(0, events.shape[0], chunk):
+        x = torch.from_numpy(events[start : start + chunk]).to(
             device=device, dtype=torch.float32
         )
         preds.append((model(x) > 0).to(torch.uint8).cpu().numpy())
@@ -155,6 +158,12 @@ def run_one(config: dict, d: int, p: float, device: torch.device) -> dict:
         grad_clip=config.get("grad_clip"),
         log_prefix=label,
     )
+
+    # Persist weights immediately: a crash during eval must not cost the
+    # training run. Checkpoints are gitignored (*.pt).
+    ckpt_dir = Path(config.get("ckpt_dir", "experiments/models"))
+    ckpt_dir.mkdir(parents=True, exist_ok=True)
+    torch.save(model.state_dict(), ckpt_dir / f"{config.get('name', 'run')}_d{d}_p{p}.pt")
 
     # "eval_ps" evaluates the p-trained model across other noise rates
     # (train-where-errors-are-plentiful, test-where-they're-rare).
