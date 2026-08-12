@@ -1,0 +1,156 @@
+{
+  "config": {
+    "code": "surface",
+    "noise": "circuit",
+    "distances": [
+      3,
+      5
+    ],
+    "rounds": "d",
+    "ps": [
+      0.008
+    ],
+    "cells": [
+      [
+        3,
+        0.008
+      ],
+      [
+        5,
+        0.008
+      ]
+    ],
+    "eval_ps": [
+      0.004,
+      0.006,
+      0.008
+    ],
+    "name": "phase2_surface_cnn3d",
+    "seed": 23,
+    "train_shots": 15000000,
+    "test_shots": 1000000,
+    "model": {
+      "arch": "cnn3d",
+      "channels": 48,
+      "depth": 4,
+      "head": 128
+    },
+    "epochs": 25,
+    "batch_size": 2048,
+    "lr": 0.001,
+    "grad_clip": 1.0,
+    "cosine": true
+  },
+  "git_sha": "54f0649e2a102f41d53993f9ca9dfdab89cbb39e",
+  "device": "cuda:1",
+  "results": [
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.004,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 9483,
+      "mwpm_errors": 11385,
+      "nn_only_wrong": 1445,
+      "mwpm_only_wrong": 3347,
+      "nn_logical_error_rate": 0.009483,
+      "mwpm_logical_error_rate": 0.011385,
+      "params": 582881,
+      "seconds": 8318.286070109927
+    },
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.006,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 20596,
+      "mwpm_errors": 23646,
+      "nn_only_wrong": 3407,
+      "mwpm_only_wrong": 6457,
+      "nn_logical_error_rate": 0.020596,
+      "mwpm_logical_error_rate": 0.023646,
+      "params": 582881,
+      "seconds": 8322.73046570993
+    },
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.008,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 35484,
+      "mwpm_errors": 40157,
+      "nn_only_wrong": 6088,
+      "mwpm_only_wrong": 10761,
+      "nn_logical_error_rate": 0.035484,
+      "mwpm_logical_error_rate": 0.040157,
+      "params": 582881,
+      "seconds": 8327.149370267987
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.004,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 5336,
+      "mwpm_errors": 7592,
+      "nn_only_wrong": 1611,
+      "mwpm_only_wrong": 3867,
+      "nn_logical_error_rate": 0.005336,
+      "mwpm_logical_error_rate": 0.007592,
+      "params": 1516769,
+      "seconds": 28862.08651868801
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.006,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 17542,
+      "mwpm_errors": 23099,
+      "nn_only_wrong": 5739,
+      "mwpm_only_wrong": 11296,
+      "nn_logical_error_rate": 0.017542,
+      "mwpm_logical_error_rate": 0.023099,
+      "params": 1516769,
+      "seconds": 28884.08593316702
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.008,
+      "train_shots": 15000000,
+      "test_shots": 1000000,
+      "nn_errors": 40773,
+      "mwpm_errors": 49315,
+      "nn_only_wrong": 14109,
+      "mwpm_only_wrong": 22651,
+      "nn_logical_error_rate": 0.040773,
+      "mwpm_logical_error_rate": 0.049315,
+      "params": 1516769,
+      "seconds": 28904.618106993963
+    }
+  ]
+}
