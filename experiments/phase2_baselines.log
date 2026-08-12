@@ -1,0 +1,7 @@
+{'distance': 3, 'eval_p': 0.004, 'nn_logical_error_rate': 0.009483, 'mwpm_logical_error_rate': 0.011385, 'beliefmatching_logical_error_rate': 0.01035}
+{'distance': 3, 'eval_p': 0.006, 'nn_logical_error_rate': 0.020596, 'mwpm_logical_error_rate': 0.023646, 'beliefmatching_logical_error_rate': 0.021906}
+{'distance': 3, 'eval_p': 0.008, 'nn_logical_error_rate': 0.035484, 'mwpm_logical_error_rate': 0.040157, 'beliefmatching_logical_error_rate': 0.037473}
+{'distance': 5, 'eval_p': 0.004, 'nn_logical_error_rate': 0.005336, 'mwpm_logical_error_rate': 0.007592, 'beliefmatching_logical_error_rate': 0.005293}
+{'distance': 5, 'eval_p': 0.006, 'nn_logical_error_rate': 0.017542, 'mwpm_logical_error_rate': 0.023099, 'beliefmatching_logical_error_rate': 0.016457}
+{'distance': 5, 'eval_p': 0.008, 'nn_logical_error_rate': 0.040773, 'mwpm_logical_error_rate': 0.049315, 'beliefmatching_logical_error_rate': 0.036983}
+wrote experiments/phase2_surface_cnn3d.baselines.json
