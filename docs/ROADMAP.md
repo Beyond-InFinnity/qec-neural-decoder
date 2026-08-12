@@ -52,9 +52,11 @@ Goal: the headline result — a competitive learned decoder under circuit-level 
       (d×d detector grid × rounds) — this choice dominates everything after it.
 - [ ] Architectures: 2D/3D CNN, then a small transformer over rounds
       (AlphaQubit-style but sized for 8 GB VRAM).
-- [ ] Beat MWPM logical error rate at d = 3 and d = 5 (this is achievable —
-      MWPM is suboptimal for correlated errors from circuit-level noise;
-      compare also against PyMatching with correlated re-weighting).
+- [x] Beat plain MWPM at d = 3 and d = 5: done (0.83–0.88× and 0.70–0.83×,
+      `phase2_surface_cnn3d`). Strong baseline (belief-matching, 20 BP iters):
+      NN wins at d=3 (0.92–0.95×), ties/trails at d=5 (1.01–1.10×) —
+      `phase2_surface_cnn3d.baselines.json`. Remaining: close the d=5 gap
+      (one bounded scale-up iteration, then move on either way).
 - [ ] Generalization: train at one p, evaluate across p; train per-d vs shared.
 - [ ] d = 7 attempt; document VRAM/throughput limits honestly.
 
