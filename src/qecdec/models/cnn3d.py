@@ -28,10 +28,16 @@ class SurfaceConvDecoder(nn.Module):
         self.register_buffer(
             "flat_index", torch.from_numpy(flat_index.astype(np.int64)), persistent=False
         )
+        # GroupNorm keeps depth-5 stacks trainable (plain Conv+ReLU at depth 5
+        # collapsed to constant output — frozen loss ~ln 2; see phase2 v2 log).
         convs: list[nn.Module] = []
         in_ch = volume_shape[0]
         for _ in range(depth):
-            convs += [nn.Conv3d(in_ch, channels, kernel_size=3, padding=1), nn.ReLU()]
+            convs += [
+                nn.Conv3d(in_ch, channels, kernel_size=3, padding=1),
+                nn.GroupNorm(8, channels),
+                nn.ReLU(),
+            ]
             in_ch = channels
         self.convs = nn.Sequential(*convs)
         c, t, h, w = volume_shape
