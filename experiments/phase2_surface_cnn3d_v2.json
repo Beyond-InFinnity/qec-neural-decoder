@@ -1,19 +1,38 @@
 {
   "code": "surface",
   "noise": "circuit",
-  "distances": [5],
+  "distances": [
+    5
+  ],
   "rounds": "d",
-  "ps": [0.008],
-  "cells": [[5, 0.008]],
-  "eval_ps": [0.004, 0.006, 0.008],
+  "ps": [
+    0.008
+  ],
+  "cells": [
+    [
+      5,
+      0.008
+    ]
+  ],
+  "eval_ps": [
+    0.004,
+    0.006,
+    0.008
+  ],
   "name": "phase2_surface_cnn3d_v2",
   "seed": 29,
   "train_shots": 20000000,
   "test_shots": 1000000,
-  "model": {"arch": "cnn3d", "channels": 64, "depth": 5, "head": 256},
+  "model": {
+    "arch": "cnn3d",
+    "channels": 64,
+    "depth": 5,
+    "head": 256
+  },
   "epochs": 30,
   "batch_size": 2048,
   "lr": 0.001,
   "grad_clip": 1.0,
-  "cosine": true
+  "cosine": true,
+  "warmup_steps": 500
 }
