@@ -83,6 +83,7 @@ def train_model(
     device: torch.device,
     cosine: bool = False,
     grad_clip: float | None = None,
+    warmup_steps: int = 0,
     log_prefix: str = "",
 ) -> None:
     # Keep the dataset as uint8 on-device (8x smaller than float32 — a 10M-shot
@@ -98,10 +99,18 @@ def train_model(
     loss_fn = nn.BCEWithLogitsLoss()
     n = x.shape[0]
     model.train()
+    step = 0
     for epoch in range(epochs):
         perm = torch.randperm(n, device=device)
         total = 0.0
         for start in range(0, n, batch_size):
+            # Linear warmup: guards against collapse-to-base-rate from unlucky
+            # early batch sequences (observed as a data-seed-dependent freeze;
+            # see docs/phase2 stability notes).
+            if warmup_steps and step < warmup_steps:
+                for g in opt.param_groups:
+                    g["lr"] = lr * (step + 1) / warmup_steps
+            step += 1
             idx = perm[start : start + batch_size]
             opt.zero_grad()
             loss = loss_fn(model(x[idx].float()), y[idx])
@@ -156,6 +165,7 @@ def run_one(config: dict, d: int, p: float, device: torch.device) -> dict:
         device=device,
         cosine=config.get("cosine", False),
         grad_clip=config.get("grad_clip"),
+        warmup_steps=config.get("warmup_steps", 0),
         log_prefix=label,
     )
 
