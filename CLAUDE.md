@@ -14,6 +14,15 @@ afterthought.
 
 ## Current status
 
+Phases 0–2 complete. Phase 2 (2026-08-14): 3D CNN beats plain MWPM at d=3+5,
+beats belief-matching at d=3, parity-to-+10% at d=5; scale-up overfits;
+LR-warmup fixes a data-seed-dependent training collapse — full story in
+docs/phase2-results.md. Best checkpoints: workstation
+experiments/models/phase2_surface_cnn3d_d{3,5}_p0.008.pt. Next: Phase 3A
+latency-frontier study (see phase2-results.md carry-forward).
+
+## Previous status
+
 Phase 0 complete (2026-08-05): MWPM threshold curves reproduced (surface-code
 crossing p≈0.007), latency baseline (i5: d=7 ~22 µs/shot single). Phase 1
 complete (2026-08-08): dilated CNN matches MWPM on rep code d≤11 — full arc,

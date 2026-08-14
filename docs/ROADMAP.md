@@ -60,7 +60,11 @@ Goal: the headline result — a competitive learned decoder under circuit-level 
 - [ ] Generalization: train at one p, evaluate across p; train per-d vs shared.
 - [ ] d = 7 attempt; document VRAM/throughput limits honestly.
 
-**Exit:** p_L(NN) < p_L(MWPM) at d = 3, 5 under circuit-level depolarizing
+**Exit: met (2026-08-14).** NN < plain MWPM at d=3 and d=5 (0.70–0.88×); vs
+belief-matching wins at d=3, parity-to-+10% at d=5; naive 2× scale-up
+overfits. Full results + training-stability investigation in
+docs/phase2-results.md. Original criterion for reference:
+p_L(NN) < p_L(MWPM) at d = 3, 5 under circuit-level depolarizing
 noise, with error bars (sinter-style bootstrap), reproducible from configs.
 
 ## Phase 3 — Frontier (pick based on Phase 2 findings)

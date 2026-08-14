@@ -1,0 +1,98 @@
+{
+  "config": {
+    "code": "surface",
+    "noise": "circuit",
+    "distances": [
+      5
+    ],
+    "rounds": "d",
+    "ps": [
+      0.008
+    ],
+    "cells": [
+      [
+        5,
+        0.008
+      ]
+    ],
+    "eval_ps": [
+      0.004,
+      0.006,
+      0.008
+    ],
+    "name": "phase2_surface_cnn3d_v2",
+    "seed": 29,
+    "train_shots": 20000000,
+    "test_shots": 1000000,
+    "model": {
+      "arch": "cnn3d",
+      "channels": 64,
+      "depth": 5,
+      "head": 256
+    },
+    "epochs": 30,
+    "batch_size": 2048,
+    "lr": 0.001,
+    "grad_clip": 1.0,
+    "cosine": true,
+    "warmup_steps": 500
+  },
+  "git_sha": "6286f5cafd3b425ef0768d679d260e07b690c9a7",
+  "device": "cuda:1",
+  "results": [
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.004,
+      "train_shots": 20000000,
+      "test_shots": 1000000,
+      "nn_errors": 5688,
+      "mwpm_errors": 7503,
+      "nn_only_wrong": 2310,
+      "mwpm_only_wrong": 4125,
+      "nn_logical_error_rate": 0.005688,
+      "mwpm_logical_error_rate": 0.007503,
+      "params": 3986241,
+      "seconds": 76077.63878959406
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.006,
+      "train_shots": 20000000,
+      "test_shots": 1000000,
+      "nn_errors": 19193,
+      "mwpm_errors": 23121,
+      "nn_only_wrong": 7860,
+      "mwpm_only_wrong": 11788,
+      "nn_logical_error_rate": 0.019193,
+      "mwpm_logical_error_rate": 0.023121,
+      "params": 3986241,
+      "seconds": 76109.75161676307
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.008,
+      "train_shots": 20000000,
+      "test_shots": 1000000,
+      "nn_errors": 43090,
+      "mwpm_errors": 49077,
+      "nn_only_wrong": 17942,
+      "mwpm_only_wrong": 23929,
+      "nn_logical_error_rate": 0.04309,
+      "mwpm_logical_error_rate": 0.049077,
+      "params": 3986241,
+      "seconds": 76141.93691219902
+    }
+  ]
+}

@@ -1,0 +1,95 @@
+{
+  "config": {
+    "code": "surface",
+    "noise": "circuit",
+    "distances": [
+      5
+    ],
+    "rounds": "d",
+    "ps": [
+      0.008
+    ],
+    "cells": [
+      [
+        5,
+        0.008
+      ]
+    ],
+    "eval_ps": [
+      0.004,
+      0.006,
+      0.008
+    ],
+    "name": "phase2_surface_cnn3d_v2",
+    "seed": 29,
+    "train_shots": 20000000,
+    "test_shots": 1000000,
+    "model": {
+      "arch": "cnn3d",
+      "channels": 64,
+      "depth": 5,
+      "head": 256
+    },
+    "epochs": 30,
+    "batch_size": 2048,
+    "lr": 0.001,
+    "grad_clip": 1.0,
+    "cosine": true,
+    "warmup_steps": 500
+  },
+  "git_sha": "6286f5cafd3b425ef0768d679d260e07b690c9a7",
+  "max_bp_iters": 20,
+  "results": [
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.004,
+      "test_shots": 1000000,
+      "nn_logical_error_rate": 0.005688,
+      "mwpm_logical_error_rate": 0.007503,
+      "beliefmatching_logical_error_rate": 0.005117,
+      "nn_errors": 5688,
+      "mwpm_errors": 7503,
+      "beliefmatching_errors": 5117,
+      "nn_only_wrong_vs_bm": 2390,
+      "bm_only_wrong_vs_nn": 1819
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.006,
+      "test_shots": 1000000,
+      "nn_logical_error_rate": 0.019193,
+      "mwpm_logical_error_rate": 0.023121,
+      "beliefmatching_logical_error_rate": 0.01662,
+      "nn_errors": 19193,
+      "mwpm_errors": 23121,
+      "beliefmatching_errors": 16620,
+      "nn_only_wrong_vs_bm": 7917,
+      "bm_only_wrong_vs_nn": 5344
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "eval_p": 0.008,
+      "test_shots": 1000000,
+      "nn_logical_error_rate": 0.04309,
+      "mwpm_logical_error_rate": 0.049077,
+      "beliefmatching_logical_error_rate": 0.036587,
+      "nn_errors": 43090,
+      "mwpm_errors": 49077,
+      "beliefmatching_errors": 36587,
+      "nn_only_wrong_vs_bm": 18116,
+      "bm_only_wrong_vs_nn": 11613
+    }
+  ]
+}
