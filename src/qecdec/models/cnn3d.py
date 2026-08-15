@@ -22,6 +22,7 @@ class SurfaceConvDecoder(nn.Module):
         channels: int = 48,
         depth: int = 4,
         head: int = 128,
+        groupnorm: bool = True,
     ):
         super().__init__()
         self.volume_shape = volume_shape
@@ -30,14 +31,14 @@ class SurfaceConvDecoder(nn.Module):
         )
         # GroupNorm keeps depth-5 stacks trainable (plain Conv+ReLU at depth 5
         # collapsed to constant output — frozen loss ~ln 2; see phase2 v2 log).
+        # groupnorm=False exists to load pre-GroupNorm checkpoints (phase2 v1).
         convs: list[nn.Module] = []
         in_ch = volume_shape[0]
         for _ in range(depth):
-            convs += [
-                nn.Conv3d(in_ch, channels, kernel_size=3, padding=1),
-                nn.GroupNorm(8, channels),
-                nn.ReLU(),
-            ]
+            convs.append(nn.Conv3d(in_ch, channels, kernel_size=3, padding=1))
+            if groupnorm:
+                convs.append(nn.GroupNorm(8, channels))
+            convs.append(nn.ReLU())
             in_ch = channels
         self.convs = nn.Sequential(*convs)
         c, t, h, w = volume_shape
