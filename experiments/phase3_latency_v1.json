@@ -1,0 +1,85 @@
+{
+  "config_name": "phase2_surface_cnn3d",
+  "device": "cuda:0",
+  "git_sha": "647d11706d4154c298d1add069a25014a228cdbd",
+  "results": [
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.008,
+      "noise": "circuit",
+      "params": 582881,
+      "shots": 100000,
+      "decoders": {
+        "nn_fp32": {
+          "dtype": "float32",
+          "logical_error_rate": 0.0354,
+          "batch256_us_per_shot": 3.043187541315535,
+          "batch2048_us_per_shot": 2.812501750308153,
+          "batch8192_us_per_shot": 2.7348776446463794,
+          "single_us_median": 404.9304989166558,
+          "single_us_p99": 500.5690036341548
+        },
+        "nn_fp16": {
+          "dtype": "float16",
+          "logical_error_rate": 0.03538,
+          "batch256_us_per_shot": 1.5671118979718393,
+          "batch2048_us_per_shot": 1.4271967359036353,
+          "batch8192_us_per_shot": 1.3829295445096552,
+          "single_us_median": 415.1295288465917,
+          "single_us_p99": 511.6249667480588
+        },
+        "mwpm": {
+          "logical_error_rate": 0.04001,
+          "batch_us_per_shot": 0.39404207025654614,
+          "single_us_median": 4.068482667207718,
+          "single_us_p99": 8.346978574991226
+        },
+        "beliefmatching": {
+          "logical_error_rate": 0.0375,
+          "batch_us_per_shot": 131.3003357499838
+        }
+      }
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "params": 1516769,
+      "shots": 100000,
+      "decoders": {
+        "nn_fp32": {
+          "dtype": "float32",
+          "logical_error_rate": 0.04117,
+          "batch256_us_per_shot": 10.004128767039406,
+          "batch2048_us_per_shot": 9.278668071506976,
+          "batch8192_us_per_shot": 9.186442850269335,
+          "single_us_median": 414.34052400290966,
+          "single_us_p99": 509.0860649943352
+        },
+        "nn_fp16": {
+          "dtype": "float16",
+          "logical_error_rate": 0.04118,
+          "batch256_us_per_shot": 5.047701382957316,
+          "batch2048_us_per_shot": 4.69029170583705,
+          "batch8192_us_per_shot": 4.62555342532293,
+          "single_us_median": 410.2165694348514,
+          "single_us_p99": 422.45804797858
+        },
+        "mwpm": {
+          "logical_error_rate": 0.0491,
+          "batch_us_per_shot": 3.7828600709326565,
+          "single_us_median": 7.826485671103001,
+          "single_us_p99": 18.369057215750217
+        },
+        "beliefmatching": {
+          "logical_error_rate": 0.0372,
+          "batch_us_per_shot": 3436.7907161999033
+        }
+      }
+    }
+  ]
+}

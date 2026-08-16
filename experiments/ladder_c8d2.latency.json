@@ -1,0 +1,46 @@
+{
+  "config_name": "ladder_c8d2",
+  "device": "cuda:0",
+  "git_sha": "647d11706d4154c298d1add069a25014a228cdbd",
+  "results": [
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "params": 112929,
+      "shots": 100000,
+      "decoders": {
+        "nn_fp32": {
+          "dtype": "float32",
+          "logical_error_rate": 0.0526,
+          "batch256_us_per_shot": 1.8019972160870497,
+          "batch2048_us_per_shot": 1.7451000573487363,
+          "batch8192_us_per_shot": 1.716248940889879,
+          "single_us_median": 366.12001713365316,
+          "single_us_p99": 411.8930082768202
+        },
+        "nn_fp16": {
+          "dtype": "float16",
+          "logical_error_rate": 0.05254,
+          "batch256_us_per_shot": 1.4760464345715427,
+          "batch2048_us_per_shot": 0.4239142867845658,
+          "batch8192_us_per_shot": 0.40159653735827305,
+          "single_us_median": 369.3434991873801,
+          "single_us_p99": 422.2510615363717
+        },
+        "mwpm": {
+          "logical_error_rate": 0.0491,
+          "batch_us_per_shot": 3.7591676705051214,
+          "single_us_median": 7.833004929125309,
+          "single_us_p99": 23.71496520936489
+        },
+        "beliefmatching": {
+          "logical_error_rate": 0.0372,
+          "batch_us_per_shot": 3498.374127096031
+        }
+      }
+    }
+  ]
+}

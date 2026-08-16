@@ -1,0 +1,38 @@
+{
+  "code": "surface",
+  "noise": "circuit",
+  "distances": [
+    5
+  ],
+  "rounds": "d",
+  "ps": [
+    0.008
+  ],
+  "cells": [
+    [
+      5,
+      0.008
+    ]
+  ],
+  "eval_ps": [
+    0.004,
+    0.006,
+    0.008
+  ],
+  "name": "ladder_c16d2",
+  "seed": 23,
+  "train_shots": 15000000,
+  "test_shots": 1000000,
+  "model": {
+    "arch": "cnn3d",
+    "channels": 16,
+    "depth": 2,
+    "head": 64
+  },
+  "epochs": 25,
+  "batch_size": 2048,
+  "lr": 0.001,
+  "grad_clip": 1.0,
+  "cosine": true,
+  "warmup_steps": 500
+}
