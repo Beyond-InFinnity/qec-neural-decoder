@@ -42,11 +42,22 @@ persistent-kernel path (TensorRT/CUDA graphs) or FPGA port; the compute-cost
 numbers here say that budget exists (0.4–2.3 µs of arithmetic), which is
 precisely the actionable finding for decoder-hardware teams.
 
+## Real-time path measurements (2026-08-16, `experiments/*.rt.json`)
+
+- [x] **int8 weight quantization is accuracy-free**: p_L shifts < 1% relative
+      at every model size (c16d2 0.04685 → 0.04719; d=3 model unchanged).
+      fp16 activations + int8 weights both survive; full-int8 activations and
+      TensorRT remain untried.
+- [x] **CUDA-graph single-shot: ~410 µs → 70–128 µs median** (c16d2: 70 µs
+      median / 93 µs p99). The remaining floor is memcpy+replay+sync on a
+      consumer GPU, not kernel launches — vs 0.63 µs/shot of arithmetic in
+      the batched regime. This 100× gap between arithmetic cost and
+      single-shot overhead is the quantitative case for persistent-kernel /
+      FPGA decoder implementations.
+
 ## Remaining Phase 3 work
 
-- [ ] int8 quantization rung (expected ~2× over fp16; verify p_L survives).
-- [ ] CUDA-graph / torch.compile single-shot latency (close the 410 µs gap).
+- [ ] Multi-seed error bars (seeds 41, 53 × {c16d2, c16d3, c32d3}) — training
+      now, `experiments/seeds_d5.log`.
 - [ ] Real-device validation on Google's public Sycamore surface-code memory
       data — the credibility anchor for all simulated-noise claims.
-- [ ] Multi-seed error bars on the ladder accuracies before any external
-      writeup.

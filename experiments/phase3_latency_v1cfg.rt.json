@@ -1,0 +1,31 @@
+{
+  "device": "cuda:0",
+  "results": [
+    {
+      "code": "surface",
+      "distance": 3,
+      "rounds": 3,
+      "p": 0.008,
+      "noise": "circuit",
+      "name": "phase2_surface_cnn3d",
+      "params": 582881,
+      "p_L_fp16": 0.03538,
+      "p_L_int8w_fp16": 0.03535,
+      "graph_single_us_median": 128.0244905501604,
+      "graph_single_us_p99": 146.25501353293657
+    },
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "name": "phase2_surface_cnn3d",
+      "params": 1516769,
+      "p_L_fp16": 0.04118,
+      "p_L_int8w_fp16": 0.04101,
+      "graph_single_us_median": 134.99351916834712,
+      "graph_single_us_p99": 154.3789403513074
+    }
+  ]
+}

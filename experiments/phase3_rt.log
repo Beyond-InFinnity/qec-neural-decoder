@@ -1,0 +1,10 @@
+{"code": "surface", "distance": 5, "rounds": 5, "p": 0.008, "noise": "circuit", "name": "ladder_c16d2", "params": 229185, "p_L_fp16": 0.04685, "p_L_int8w_fp16": 0.04719, "graph_single_us_median": 70.1249809935689, "graph_single_us_p99": 93.48208550363779}
+wrote experiments/ladder_c16d2.rt.json
+{"code": "surface", "distance": 5, "rounds": 5, "p": 0.008, "noise": "circuit", "name": "ladder_c16d3", "params": 457457, "p_L_fp16": 0.04158, "p_L_int8w_fp16": 0.04184, "graph_single_us_median": 90.59248259291053, "graph_single_us_p99": 96.54299356043339}
+wrote experiments/ladder_c16d3.rt.json
+{"code": "surface", "distance": 5, "rounds": 5, "p": 0.008, "noise": "circuit", "name": "ladder_c32d3", "params": 942305, "p_L_fp16": 0.04015, "p_L_int8w_fp16": 0.04049, "graph_single_us_median": 103.42599125579, "graph_single_us_p99": 114.05197437852621}
+wrote experiments/ladder_c32d3.rt.json
+{"code": "surface", "distance": 3, "rounds": 3, "p": 0.008, "noise": "circuit", "name": "phase2_surface_cnn3d", "params": 582881, "p_L_fp16": 0.03538, "p_L_int8w_fp16": 0.03535, "graph_single_us_median": 128.0244905501604, "graph_single_us_p99": 146.25501353293657}
+{"code": "surface", "distance": 5, "rounds": 5, "p": 0.008, "noise": "circuit", "name": "phase2_surface_cnn3d", "params": 1516769, "p_L_fp16": 0.04118, "p_L_int8w_fp16": 0.04101, "graph_single_us_median": 134.99351916834712, "graph_single_us_p99": 154.3789403513074}
+wrote experiments/phase3_latency_v1cfg.rt.json
+RT_DONE

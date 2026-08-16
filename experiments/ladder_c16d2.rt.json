@@ -1,0 +1,18 @@
+{
+  "device": "cuda:0",
+  "results": [
+    {
+      "code": "surface",
+      "distance": 5,
+      "rounds": 5,
+      "p": 0.008,
+      "noise": "circuit",
+      "name": "ladder_c16d2",
+      "params": 229185,
+      "p_L_fp16": 0.04685,
+      "p_L_int8w_fp16": 0.04719,
+      "graph_single_us_median": 70.1249809935689,
+      "graph_single_us_p99": 93.48208550363779
+    }
+  ]
+}
