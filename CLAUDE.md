@@ -32,6 +32,17 @@ runs on cuda:1 = RTX 5050). Next: Phase 2 (surface-code decoder) — carry
 forward: locality-first arch, RF ≥ d, grad-clip + lr ≤ 1e-3, train-at-high-p,
 paired eval. Still pending: latency re-run on i9-9900; tmux install.
 
+## Orchestration (multi-machine, multi-session)
+
+Rules/protocols live in the PRIVATE repo `homelab-orchestration`
+(`~/Documents/projects/homelab-orchestration` on the server;
+`~/projects/homelab-orchestration` on the workstation). Read its RULES.md
+before launching remote jobs; append job boundaries to LEDGER.md; live state
+via `scripts/status.sh`. GPU ownership: **this project owns the RTX 5050
+(torch cuda:1)** for training; the 3070 (cuda:0) is for benchmarks/eval and
+may be claimed by nv-sensing-sim — check MACHINES.md. One Claude session per
+repo; cross-session handoff via this status section + the ledger.
+
 ## Hardware context
 
 - Training: RTX 3070 (8 GB) or RTX 5050 (8 GB) in the i9-9900 / 64 GB machine.
