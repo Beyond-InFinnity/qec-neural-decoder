@@ -28,13 +28,19 @@ def volume_spec(circuit: stim.Circuit) -> VolumeSpec:
     xs = np.array([coords[i][0] for i in range(n)])
     ys = np.array([coords[i][1] for i in range(n)])
     ts = np.array([coords[i][2] for i in range(n)])
-    if (xs % 2).any() or (ys % 2).any():
-        raise ValueError("expected even spatial coordinates (rotated surface code)")
-    gx = (xs // 2).astype(np.int64)
-    gy = (ys // 2).astype(np.int64)
-    gt = ts.astype(np.int64)
+    if not (xs % 2).any() and not (ys % 2).any():
+        # Stim's generated circuits: even coords on a doubled grid.
+        gx = (xs // 2).astype(np.int64)
+        gy = (ys // 2).astype(np.int64)
+    else:
+        # General case (e.g. Google's XZZX data: unit-spaced coords) — map
+        # coordinate values to grid indices by rank.
+        gx = np.unique(xs, return_inverse=True)[1].astype(np.int64)
+        gy = np.unique(ys, return_inverse=True)[1].astype(np.int64)
+    tvals, gt = np.unique(ts, return_inverse=True)
+    gt = gt.astype(np.int64)
 
-    z_cells = {(int(x), int(y)) for x, y, t in zip(gx, gy, gt) if t == 0}
+    z_cells = {(int(x), int(y)) for x, y, t in zip(gx, gy, gt) if t == gt.min()}
     chan = np.array([0 if (int(x), int(y)) in z_cells else 1 for x, y in zip(gx, gy)])
 
     C, T, H, W = 2, int(gt.max()) + 1, int(gy.max()) + 1, int(gx.max()) + 1
