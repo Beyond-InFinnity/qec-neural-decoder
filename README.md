@@ -108,11 +108,13 @@ Documented deliberately, with artifacts:
 
 ## Limitations
 
-Simulated depolarizing noise only, d ≤ 5 for the surface code, single
-training seed for most cells (multi-seed spread for the claim-bearing
-configurations in progress), and batched throughput is not reactive
-single-shot latency (see above). Validation on public experimental data
-(Google surface-code memory datasets) is planned.
+Simulated depolarizing noise only, d ≤ 5 for the surface code, and batched
+throughput is not reactive single-shot latency (see above). The ladder's
+claim-bearing configurations were retrained under three seeds each: seed
+spread is ±1–3% relative — an order of magnitude below the reported effects —
+with every seed beating MWPM at every operating point
+(`docs/phase3-results.md`). Validation on public experimental data (Google
+surface-code memory datasets) is planned.
 
 ## Repository layout
 

@@ -55,9 +55,22 @@ precisely the actionable finding for decoder-hardware teams.
       single-shot overhead is the quantitative case for persistent-kernel /
       FPGA decoder implementations.
 
-## Remaining Phase 3 work
+## Seed robustness (2026-08-17, `experiments/ladder_c*_s*.results.json`)
 
-- [ ] Multi-seed error bars (seeds 41, 53 × {c16d2, c16d3, c32d3}) — training
-      now, `experiments/seeds_d5.log`.
+Three training seeds per claim-bearing rung (original + 41 + 53), each with
+its own seeded test set; ratios computed within-run:
+
+| rung | p_L at p=0.008 (3 seeds) | relative spread |
+|---|---|---|
+| c16d2 | 4.51–4.64 e-2 | ±1.4% |
+| c16d3 | 4.18–4.39 e-2 | ±2.5% |
+| c32d3 | 4.00–4.06 e-2 | ±0.8% |
+
+Seed variation (1–3% relative) is an order of magnitude below the claimed
+effects (8–30% vs MWPM). Every seed of every rung beats MWPM at every
+operating point; rung ordering is seed-stable; all six retrains trained
+without instability under the warmup recipe.
+
+## Remaining Phase 3 work
 - [ ] Real-device validation on Google's public Sycamore surface-code memory
       data — the credibility anchor for all simulated-noise claims.
