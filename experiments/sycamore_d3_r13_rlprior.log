@@ -1,0 +1,57 @@
+d3_at_q4_5/X/r13: 104 detectors -> volume (2, 14, 5, 5)
+pretrain set: (15000000, 104), flip rate 0.3281
+[pretrain] epoch 1/20 loss 0.20348
+[pretrain] epoch 2/20 loss 0.16904
+[pretrain] epoch 3/20 loss 0.16534
+[pretrain] epoch 4/20 loss 0.16322
+[pretrain] epoch 5/20 loss 0.16173
+[pretrain] epoch 6/20 loss 0.16038
+[pretrain] epoch 7/20 loss 0.15903
+[pretrain] epoch 8/20 loss 0.15749
+[pretrain] epoch 9/20 loss 0.15572
+[pretrain] epoch 10/20 loss 0.15361
+[pretrain] epoch 11/20 loss 0.15107
+[pretrain] epoch 12/20 loss 0.14821
+[pretrain] epoch 13/20 loss 0.14509
+[pretrain] epoch 14/20 loss 0.14183
+[pretrain] epoch 15/20 loss 0.13865
+[pretrain] epoch 16/20 loss 0.13566
+[pretrain] epoch 17/20 loss 0.13309
+[pretrain] epoch 18/20 loss 0.13104
+[pretrain] epoch 19/20 loss 0.12961
+[pretrain] epoch 20/20 loss 0.12879
+[finetune] epoch 1/15 loss 0.22962
+[finetune] epoch 2/15 loss 0.20920
+[finetune] epoch 3/15 loss 0.19494
+[finetune] epoch 4/15 loss 0.18372
+[finetune] epoch 5/15 loss 0.17358
+[finetune] epoch 6/15 loss 0.16479
+[finetune] epoch 7/15 loss 0.15698
+[finetune] epoch 8/15 loss 0.15054
+[finetune] epoch 9/15 loss 0.14501
+[finetune] epoch 10/15 loss 0.14066
+[finetune] epoch 11/15 loss 0.13726
+[finetune] epoch 12/15 loss 0.13482
+[finetune] epoch 13/15 loss 0.13320
+[finetune] epoch 14/15 loss 0.13224
+[finetune] epoch 15/15 loss 0.13180
+{
+  "experiment": "d3_at_q4_5/X/r13",
+  "volume_shape": [
+    2,
+    14,
+    5,
+    5
+  ],
+  "detectors": 104,
+  "test_shots": 10000,
+  "params": 2340449,
+  "nn_pretrained": 0.083,
+  "nn_finetuned": 0.08,
+  "mwpm_on_fitted_dem": 0.0978,
+  "google:correlated_matching_decoder_with_rl_optimized_prior": 0.0786,
+  "google:correlated_matching_decoder_with_si1000_prior": 0.0901,
+  "google:harmony_decoder_with_rl_optimized_prior": 0.0782,
+  "google:harmony_decoder_with_si1000_prior": 0.0864
+}
+wrote experiments/sycamore_d3_r13_rlprior.results.json

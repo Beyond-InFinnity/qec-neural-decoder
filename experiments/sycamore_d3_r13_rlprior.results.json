@@ -1,0 +1,60 @@
+{
+  "config": {
+    "name": "sycamore_d3_r13_rlprior",
+    "root": "data/sycamore/google_105Q_surface_code_d3_d5_d7",
+    "experiment": "d3_at_q4_5/X/r13",
+    "dem_source": "correlated_matching_decoder_with_rl_optimized_prior",
+    "seed": 61,
+    "pretrain_shots": 15000000,
+    "pretrain_epochs": 20,
+    "finetune_epochs": 15,
+    "finetune_lr": 0.0001,
+    "finetune_batch": 512,
+    "test_frac": 0.2,
+    "batch_size": 4096,
+    "lr": 0.001,
+    "warmup_steps": 500,
+    "model": {
+      "channels": 48,
+      "depth": 4,
+      "head": 128,
+      "groupnorm": true
+    }
+  },
+  "git_sha": "4cbc0d54b79478f65eed8fe37d210abcbc28819d",
+  "results": {
+    "experiment": "d3_at_q4_5/X/r13",
+    "volume_shape": [
+      2,
+      14,
+      5,
+      5
+    ],
+    "detectors": 104,
+    "test_shots": 10000,
+    "params": 2340449,
+    "nn_pretrained": 0.083,
+    "nn_finetuned": 0.08,
+    "mwpm_on_fitted_dem": 0.0978,
+    "google:correlated_matching_decoder_with_rl_optimized_prior": 0.0786,
+    "paired_vs_correlated_matching_decoder_with_rl_optimized_prior": {
+      "nn_only_wrong": 190,
+      "google_only_wrong": 176
+    },
+    "google:correlated_matching_decoder_with_si1000_prior": 0.0901,
+    "paired_vs_correlated_matching_decoder_with_si1000_prior": {
+      "nn_only_wrong": 242,
+      "google_only_wrong": 343
+    },
+    "google:harmony_decoder_with_rl_optimized_prior": 0.0782,
+    "paired_vs_harmony_decoder_with_rl_optimized_prior": {
+      "nn_only_wrong": 175,
+      "google_only_wrong": 157
+    },
+    "google:harmony_decoder_with_si1000_prior": 0.0864,
+    "paired_vs_harmony_decoder_with_si1000_prior": {
+      "nn_only_wrong": 238,
+      "google_only_wrong": 302
+    }
+  }
+}
