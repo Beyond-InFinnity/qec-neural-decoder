@@ -4,14 +4,19 @@
   "experiment": "d5_at_q4_7/X/r13",
   "dem_source": "correlated_matching_decoder_with_si1000_prior",
   "seed": 61,
-  "pretrain_shots": 15000000,
+  "pretrain_shots": 10000000,
   "pretrain_epochs": 20,
   "finetune_epochs": 15,
   "finetune_lr": 0.0001,
   "finetune_batch": 512,
   "test_frac": 0.2,
-  "batch_size": 4096,
+  "batch_size": 2048,
   "lr": 0.001,
   "warmup_steps": 500,
-  "model": {"channels": 48, "depth": 4, "head": 128, "groupnorm": true}
+  "model": {
+    "channels": 48,
+    "depth": 4,
+    "head": 128,
+    "groupnorm": true
+  }
 }
