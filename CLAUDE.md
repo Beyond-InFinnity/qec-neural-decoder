@@ -14,12 +14,14 @@ afterthought.
 
 ## Current status
 
-Phases 0–2 complete. Phase 2 (2026-08-14): 3D CNN beats plain MWPM at d=3+5,
-beats belief-matching at d=3, parity-to-+10% at d=5; scale-up overfits;
-LR-warmup fixes a data-seed-dependent training collapse — full story in
-docs/phase2-results.md. Best checkpoints: workstation
-experiments/models/phase2_surface_cnn3d_d{3,5}_p0.008.pt. Next: Phase 3A
-latency-frontier study (see phase2-results.md carry-forward).
+ALL EXPERIMENTAL PHASES COMPLETE (2026-08-19). Phase 3B (real Willow data):
+beats plain MWPM at d=3 (−18%) and d=5 (−12%) on held-out real shots;
+statistically ties Google's best production decoder at d=3; d=5 gap to
+Google's decoders is the honest scale boundary. See docs/phase3b-sycamore-
+results.md, phase3-results.md (latency frontier), phase2-results.md,
+phase1-results.md. Checkpoints on workstation experiments/models/. Remaining
+work is WRITING ONLY: external writeup (blog-post/arXiv-note grade) from the
+phase docs.
 
 ## Previous status
 

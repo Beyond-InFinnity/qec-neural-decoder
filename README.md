@@ -61,6 +61,30 @@ of arithmetic): the batched numbers describe a streaming/windowed decoding
 regime, and the ~100× overhead-to-compute ratio quantifies the case for
 persistent-kernel or FPGA implementations. Details: `docs/phase3-results.md`.
 
+### Validation on Google's processor data
+
+The decoder was then tested on real experimental data: Google's public
+Willow-generation surface-code memory dataset (105-qubit processor, Zenodo
+13273331), 13-round experiments, scored on 10k held-out real shots against
+the dataset's recorded shot-level predictions from Google's production
+decoders.
+
+| decoder | d=3 | d=5 |
+|---|---|---|
+| Google harmony (RL prior) | 0.0782 | 0.0379 |
+| **this work** (DEM pretrain + real-shot fine-tune) | **0.0800** | **0.0562** |
+| plain MWPM on the fitted DEM | 0.1076 | 0.0639 |
+
+The network beats plain MWPM on real data at both distances and is
+statistically indistinguishable from Google's best production pathway at
+d=3 (paired disagreements 175 vs 157, McNemar p ≈ 0.32); at d=5 Google's
+decoders remain clearly ahead — the scale boundary of this result. An
+ablation isolates prior quality: pretraining on Google's RL-optimized error
+model rather than the si1000 model improves held-out error 11% with the
+network unchanged. A memorization failure mode (finite synthetic pretraining
+sets) and its fix (stream fresh samples every epoch) are documented in
+`docs/phase3b-sycamore-results.md`.
+
 ### How the architecture was arrived at (repetition code, d ≤ 11)
 
 Phase 1 develops the decoder on the repetition code with one intervention per
@@ -113,8 +137,9 @@ throughput is not reactive single-shot latency (see above). The ladder's
 claim-bearing configurations were retrained under three seeds each: seed
 spread is ±1–3% relative — an order of magnitude below the reported effects —
 with every seed beating MWPM at every operating point
-(`docs/phase3-results.md`). Validation on public experimental data (Google
-surface-code memory datasets) is planned.
+(`docs/phase3-results.md`). Real-data validation covers d = 3/5 at 13 rounds
+on one placement each; round- and placement-scaling on experimental data are
+future work, as is d = 7 (VRAM-bound).
 
 ## Repository layout
 
