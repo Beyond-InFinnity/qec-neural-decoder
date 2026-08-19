@@ -68,11 +68,17 @@ def main() -> None:
         channels=mcfg.get("channels", 32), depth=mcfg.get("depth", 3),
         head=mcfg.get("head", 128), groupnorm=mcfg.get("groupnorm", True),
     ).to(device)
+    def resample(epoch: int):
+        s = dem.compile_sampler(seed=seed + 100 + epoch)
+        d2, o2, _ = s.sample(config["pretrain_shots"])
+        return d2.astype(np.uint8), o2[:, 0].astype(np.uint8)
+
     train_model(
         model, dets, obs,
         epochs=config["pretrain_epochs"], batch_size=config.get("batch_size", 4096),
         lr=config.get("lr", 1e-3), device=device, cosine=True,
         grad_clip=1.0, warmup_steps=config.get("warmup_steps", 500),
+        data_refresh=resample if config.get("resample_per_epoch") else None,
         log_prefix="[pretrain] ",
     )
     ckpt_dir = Path("experiments/models")

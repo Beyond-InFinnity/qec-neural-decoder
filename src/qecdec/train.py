@@ -85,6 +85,7 @@ def train_model(
     cosine: bool = False,
     grad_clip: float | None = None,
     warmup_steps: int = 0,
+    data_refresh=None,  # callback(epoch) -> (events, flips); prevents memorizing finite synthetic sets
     log_prefix: str = "",
 ) -> None:
     # Keep the dataset as uint8 on-device (8x smaller than float32 — a 10M-shot
@@ -102,6 +103,11 @@ def train_model(
     model.train()
     step = 0
     for epoch in range(epochs):
+        if data_refresh is not None and epoch > 0:
+            ev, fl = data_refresh(epoch)
+            x = torch.from_numpy(ev).to(device)
+            y = torch.from_numpy(fl).to(device=device, dtype=torch.float32)
+            n = x.shape[0]
         perm = torch.randperm(n, device=device)
         total = 0.0
         for start in range(0, n, batch_size):
